@@ -178,6 +178,11 @@ export class SudokoBoardComponent implements OnInit {
       alert('You Lose! The board is incorrect');
     }
   }
+
+  resetGameHandler(): void {
+    this.board = [];
+    this.generateSudokoPuzzle(  );
+  }
 }
 
 // solution for first puzzle
@@ -191,7 +196,6 @@ export class SudokoBoardComponent implements OnInit {
 // [ 2, 8, 7, 4, 1, 9, 6, 3, 5 ]
 // [ 3, 4, 5, 2, 8, 6, 1, 7, 9 ]
 
-
 // solution for second puzzle
 // const solution = [
 //   [4, 8, 3, 9, 2, 1, 6, 5, 7],
@@ -204,4 +208,3 @@ export class SudokoBoardComponent implements OnInit {
 //   [8, 1, 4, 2, 5, 3, 7, 6, 9],
 //   [6, 9, 5, 4, 1, 7, 3, 8, 2],
 // ];
-
