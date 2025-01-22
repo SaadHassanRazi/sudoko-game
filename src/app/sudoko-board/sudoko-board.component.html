@@ -1,0 +1,31 @@
+<div class="flex items-center flex-col justify-center h-screen w-screen">
+  <h1 class="text-[24px] font-bold">Suduko Game</h1>
+  <div class="grid grid-rows-9 border gap-0.5 shadow-lg">
+    <div
+      *ngFor="let row of board; let rowIndex = index; trackBy: trackByIndex"
+      class="flex flex-row gap-0.5"
+    >
+      <div
+        *ngFor="let cell of row; let cellIndex = index; trackBy: trackByIndex"
+      >
+        <input
+          type="text"
+          [value]="
+            board[rowIndex][cellIndex] === 0 ? '' : board[rowIndex][cellIndex]
+          "
+          maxlength="1"
+          [ngClass]="{ invalid: cellStatus[rowIndex][cellIndex] === 'invalid' }"
+          class="w-24 h-10 text-center text-lg border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200 disabled:bg-gray-200 disabled:cursor-not-allowed"
+          (input)="handleUserInput(rowIndex, cellIndex, $event)"
+          (click)="handleCellClick(rowIndex, cellIndex)"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 my-2"
+    (click)="winCalculationHandler()"
+  >
+    Check Resutlt
+  </button>
+</div>
