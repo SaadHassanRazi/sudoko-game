@@ -9,8 +9,8 @@
         *ngFor="let cell of row; let cellIndex = index; trackBy: trackByIndex"
         class="border border-gray-500"
         [ngClass]="{
-          'border-b-4 border-black': (rowIndex + 1) % 3 === 0,
-          'border-r-4 border-black': (cellIndex + 1) % 3 === 0
+          'border-b-4 ': (rowIndex + 1) % 3 === 0,
+          'border-r-4 ': (cellIndex + 1) % 3 === 0
         }"
       >
         <input
